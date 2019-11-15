@@ -24,15 +24,15 @@ public class NewsTitleFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.news_title_frag,container,false);
-        RecyclerView newsTitleRecycleView=(RecyclerView) view.findViewById(R.id.news_title_recycler_view);
-        LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
-        newsTitleRecycleView.setLayoutManager(layoutManager);
-        NewsAdapter adapter =new NewsAdapter(getNews());
-        newsTitleRecycleView.setAdapter(adapter);
-        return view;
+        View view=inflater.inflate(R.layout.news_title_frag,container,false); //加载 news_title_frag 界面
+        RecyclerView newsTitleRecycleView=(RecyclerView) view.findViewById(R.id.news_title_recycler_view); //获取 RecyclerView 实例
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity()); //返回与当前片段相关联的活动，设置为线性布局控制
+        newsTitleRecycleView.setLayoutManager(layoutManager); //将 news_title_frag 界面内的 RecyclerView 控件内部的控件设置为线性布局
+        NewsAdapter adapter =new NewsAdapter(getNews()); //将自动生成的 50个 新闻列表内容 加载到声明的  adapter 对象中
+        newsTitleRecycleView.setAdapter(adapter); //将adapter 适配器的内容加载到 news_title_frag 界面内部 的RecyclerView 控件内部
+        return view; //返回当前界面的实例对象
     }
-    private List<News> getNews(){
+    private List<News> getNews(){ //产生50个 新闻实例 存入 List 列表内
         List<News> newsList=new ArrayList<>();
         for(int i=1;i<=50;i++){
             News news =new News();
@@ -40,9 +40,9 @@ public class NewsTitleFragment extends Fragment {
             news.setContent(getRandomLengthContent("This is news content"+i+"."));
             newsList.add(news);
         }
-        return newsList;
+        return newsList; //返回产生的整个列表对象
     }
-    private String getRandomLengthContent(String content){
+    private String getRandomLengthContent(String content){ //随机产生不定长度的新闻内容
         Random random =new Random();
         int length =random.nextInt(20)+1;
         StringBuilder builder=new StringBuilder();

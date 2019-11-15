@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
     <LinearLayout
         android:id="@+id/visibility_layout"
         android:layout_width="match_parent"
@@ -11,7 +10,6 @@
         android:orientation="vertical"
         android:visibility="invisible"
         >
-
         <TextView
             android:id="@+id/news_title"
             android:layout_width="match_parent"
