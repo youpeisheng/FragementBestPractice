@@ -34,7 +34,7 @@ public class NewsTitleFragment extends Fragment {
     }
     private List<News> getNews(){
         List<News> newsList=new ArrayList<>();
-        for(int i=1;i<50;i++){
+        for(int i=1;i<=50;i++){
             News news =new News();
             news.setTitle("This is news title"+i);
             news.setContent(getRandomLengthContent("This is news content"+i+"."));
