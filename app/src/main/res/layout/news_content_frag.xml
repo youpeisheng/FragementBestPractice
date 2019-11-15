@@ -21,6 +21,7 @@
             android:textSize="20sp"
             />
         <view
+            android:id="@+id/news_content_frag_view1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#000"
@@ -35,6 +36,7 @@
             />
     </LinearLayout>
         <View
+            android:id="@+id/news_content_frag_view2"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"

@@ -16,7 +16,8 @@ public class NewsContentFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view =inflater.inflate(R.layout.news_content_frag,container,false);
+        view=null;
+        view =inflater.inflate(R.layout.news_title_frag,container,false);
         return view;
     }
 
@@ -28,5 +29,4 @@ public class NewsContentFragment extends Fragment {
         newsTitleText.setText(newsTitle); //刷新新闻的标题
         newsContentText.setText(newsContent);//刷新新闻的内容
     }
-
 }
