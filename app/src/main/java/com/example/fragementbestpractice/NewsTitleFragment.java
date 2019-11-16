@@ -52,7 +52,7 @@ public class NewsTitleFragment extends Fragment {
         return builder.toString();
     }
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) { //在活动创建时判断 屏幕大小 改不状态值
         super.onActivityCreated(savedInstanceState);
         if(getActivity().findViewById(R.id.news_content_layout)!=null)
         {
@@ -63,24 +63,24 @@ public class NewsTitleFragment extends Fragment {
             isTwoPane =false; //找不到news_content_layout 为 单页布局
         }
     }
-    class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
+    class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> { //内部类 显示适配器 将内容链表
         private List<News> mNewsList;
-        class ViewHolder extends RecyclerView.ViewHolder{
+        class ViewHolder extends RecyclerView.ViewHolder{ //
             TextView newsTitleText;
             public ViewHolder(View view){
                 super(view);
-                newsTitleText =(TextView) view.findViewById(R.id.news_title);
+                newsTitleText =(TextView) view.findViewById(R.id.news_title); // 当前内容的标题
             }
         }
-        public NewsAdapter(List<News> newsList){
+        public NewsAdapter(List<News> newsList){ //NewsAdapter 构造函数 需要传入 List<News> 类型对象
             mNewsList=newsList;
         }
         @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item,parent,false);
-            final ViewHolder holder =new ViewHolder(view);
-            view.setOnClickListener(new View.OnClickListener() {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { //设置
+            View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item,parent,false); //获取当前显示条目
+            final ViewHolder holder =new ViewHolder(view); //创建当前显示条目的 ViewHolder 最后返回
+            view.setOnClickListener(new View.OnClickListener() { //注册按钮触发事件
                 @Override
                 public void onClick(View v) {
                     News news=mNewsList.get(holder.getAdapterPosition());
@@ -98,13 +98,12 @@ public class NewsTitleFragment extends Fragment {
             });
             return holder;
         }
-
+        //负责将每个子项holder绑定数据。俩参数分别是RecyclerView.ViewHolder holder, int position
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             News news=mNewsList.get(position);
             holder.newsTitleText.setText(news.getTitle());
         }
-
         @Override
         public int getItemCount() {
             return mNewsList.size();

@@ -28,5 +28,4 @@ public class NewsContentFragment extends Fragment {
         newsTitleText.setText(newsTitle); //刷新新闻的标题
         newsContentText.setText(newsContent);//刷新新闻的内容
     }
-
 }
